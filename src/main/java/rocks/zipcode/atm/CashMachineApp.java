@@ -1,5 +1,9 @@
 package rocks.zipcode.atm;
 
+import javafx.geometry.Insets;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -62,8 +66,47 @@ public class CashMachineApp extends Application {
         flowpane.getChildren().add(btnDeposit);
         flowpane.getChildren().add(btnWithdraw);
         flowpane.getChildren().add(btnExit);
-        vbox.getChildren().addAll(field, flowpane, areaInfo);
-        return vbox;
+//        vbox.getChildren().addAll(field, flowpane, areaInfo);
+//        return vbox;
+
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setMinSize(300,300);
+        grid.setVgap(5);
+        grid.setHgap(5);
+
+        Text accountNumber = new Text("Account Number: ");
+        grid.add(accountNumber,0,0);
+
+        TextField text1 = new TextField();
+        text1.setPrefColumnCount(10);
+        grid.add(text1, 1, 0);
+
+        Text name = new Text("Name: ");
+        grid.add(name, 0, 1);
+
+        TextField text2 = new TextField();
+        grid.add(text2, 1, 1);
+
+        Text email = new Text("Email: ");
+        grid.add(email, 0, 2);
+
+        TextField text3 = new TextField();
+        grid.add(text3, 1, 2);
+
+        Text balance = new Text("Balance: ");
+        grid.add(balance, 0, 3);
+
+        TextField text4 = new TextField();
+        grid.add(text4, 1, 3);
+
+
+        BorderPane pane = new BorderPane();
+        pane.setTop(field);
+        pane.setLeft(grid);
+        pane.setRight(flowpane);
+        return pane;
+
     }
 
     @Override

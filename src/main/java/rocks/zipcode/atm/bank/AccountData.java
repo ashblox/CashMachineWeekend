@@ -47,8 +47,6 @@ public final class AccountData {
                     "Email: " + email + '\n' +
                     "Balance: " + balance + '\n' + '\n' +
                     "ALERT! Your account is currently overdrawn.";
-
-
         }
     }
 }
