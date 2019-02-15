@@ -26,7 +26,7 @@ public class Bank {
 
         accounts.put(4000, new BasicAccount(new AccountData(4000, "Example 4", "example4@gmail.com", 450)));
 
-        accounts.put(5000, new PremiumAccount(new AccountData(5000, "Example 5" "example5@gmail.com", 300)));
+        accounts.put(5000, new PremiumAccount(new AccountData(5000, "Example 5","example5@gmail.com", 300)));
 
     }
 
