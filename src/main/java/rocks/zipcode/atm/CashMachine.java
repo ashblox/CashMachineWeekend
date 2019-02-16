@@ -59,7 +59,7 @@ public class CashMachine {
 //    }
 
     public String idToString() {
-        return accountData != null ? accountData.idToString() : "Try a different account";
+        return accountData != null ? accountData.idToString() : "No Account";
     }
 
     public String nameToString() {

@@ -33,14 +33,8 @@ public class CashMachineApp extends Application {
     private CashMachine cashMachine = new CashMachine(new Bank());
 
     private Parent createContent() {
-        VBox vbox = new VBox(10);
-        vbox.setPrefSize(600, 600);
-
-//        TextArea areaInfo = new TextArea();
-//        TextArea idArea = new TextArea()
-//        TextArea nameArea = new TextArea();
-//        TextArea emailArea = new TextArea();
-//        TextArea balanceArea = new TextArea();
+//        VBox vbox = new VBox(10);
+//        vbox.setPrefSize(600, 600);
 
         Button btnSubmit = new Button("Submit");
         btnSubmit.setOnAction(e -> {
@@ -48,6 +42,7 @@ public class CashMachineApp extends Application {
             cashMachine.login(id);
 
             setTextAreas();
+            field.setText("");
         });
 
         Button btnDeposit = new Button("Deposit");
@@ -56,6 +51,7 @@ public class CashMachineApp extends Application {
             cashMachine.deposit(amount);
 
             setTextAreas();
+            depositAmount.setText("");
         });
 
         Button btnWithdraw = new Button("Withdraw");
@@ -64,17 +60,18 @@ public class CashMachineApp extends Application {
             cashMachine.withdraw(amount);
 
             setTextAreas();
+            withdrawalAmount.setText("");
         });
 
-        Button btnExit = new Button("Exit");
+        Button btnExit = new Button("Log Off");
         btnExit.setOnAction(e -> {
             cashMachine.exit();
 
             setTextAreas();
         });
 
-        FlowPane flowpane = new FlowPane();
-
+//        FlowPane flowpane = new FlowPane();
+//
 //        flowpane.getChildren().add(btnSubmit);
 //        flowpane.getChildren().add(btnDeposit);
 //        flowpane.getChildren().add(btnWithdraw);
@@ -83,51 +80,59 @@ public class CashMachineApp extends Application {
 //        return vbox;
 
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10,10,10,10));
+        grid.setPadding(new Insets(20,20,20,20));
         grid.setMinSize(300,300);
         grid.setVgap(5);
         grid.setHgap(5);
 
         Text login = new Text("Enter Account Number: ");
-        grid.add(login,0, 0);
+        grid.add(login,1, 0);
 
-        grid.add(field, 1, 0);
+        grid.add(field, 2, 0);
 
-        grid.add(btnSubmit, 2, 0);
+        grid.add(btnSubmit, 3, 0);
+
+        Label spacing = new Label("");
+        grid.add(spacing, 4, 1);
 
         Text deposit = new Text("Make Deposit: ");
-        grid.add(deposit, 0, 1);
+        grid.add(deposit, 0, 2);
 
-        grid.add(depositAmount, 1, 1);
+        grid.add(depositAmount, 1, 2);
 
-        grid.add(btnDeposit, 2, 1);
+        grid.add(btnDeposit, 2, 2);
 
         Text withdrawal = new Text("Make Withdrawal: ");
-        grid.add(withdrawal, 0, 2);
+        grid.add(withdrawal, 0, 3);
 
-        grid.add(withdrawalAmount, 1, 2);
+        grid.add(withdrawalAmount, 1, 3);
 
-        grid.add(btnWithdraw, 2, 2);
+        grid.add(btnWithdraw, 2, 3);
 
         Label id = new Label("Account ID: ");
-        grid.add(id, 4, 0);
+        grid.add(id, 5, 2);
 
-        grid.add(idArea, 5, 0);
+        grid.add(idArea, 6, 2);
 
         Label name = new Label ("Name: ");
-        grid.add(name, 4, 1);
+        grid.add(name, 5, 3);
 
-        grid.add(nameArea, 5, 1);
+        grid.add(nameArea, 6, 3);
 
         Label email = new Label("Email: ");
-        grid.add(email, 4, 2);
+        grid.add(email, 5, 4);
 
-        grid.add(emailArea, 5, 2);
+        grid.add(emailArea, 6, 4);
 
         Label balance = new Label("Balance: ");
-        grid.add(balance, 4, 3);
+        grid.add(balance, 5, 5);
 
-        grid.add(balanceArea, 5, 3);
+        grid.add(balanceArea, 6, 5);
+
+        Label moreSpacing = new Label("");
+        grid.add(moreSpacing, 2, 6);
+
+        grid.add(btnExit, 2, 7);
 
 
 //        BorderPane pane = new BorderPane();
