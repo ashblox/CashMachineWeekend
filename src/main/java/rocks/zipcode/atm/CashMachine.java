@@ -74,6 +74,10 @@ public class CashMachine {
         return accountData != null ? accountData.balanceToString() : "";
     }
 
+    public boolean overdrawn () {
+        return accountData != null ? accountData.overdrawn() : false;
+    }
+
     private <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
         try {
             ActionResult<T> result = action.get();

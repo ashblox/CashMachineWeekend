@@ -50,6 +50,15 @@ public final class AccountData {
         return "" + balance;
     }
 
+    public boolean overdrawn() {
+        boolean overdrawn;
+        if (balance < 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 //    @Override
 //    public String toString() {
 //        if (balance > 0) {

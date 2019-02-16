@@ -1,7 +1,7 @@
 package rocks.zipcode.atm;
 
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -10,9 +10,6 @@ import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
@@ -52,7 +49,15 @@ public class CashMachineApp extends Application {
 
             setTextAreas();
             depositAmount.setText("");
+
         });
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("ALERT!");
+        alert.setHeaderText("Important Information Regarding Your Account");
+        alert.setResizable(true);
+        alert.setContentText("Your account is currently overdrawn. Please make a deposit as soon as possible.");
+
 
         Button btnWithdraw = new Button("Withdraw");
         btnWithdraw.setOnAction(e -> {
@@ -61,6 +66,10 @@ public class CashMachineApp extends Application {
 
             setTextAreas();
             withdrawalAmount.setText("");
+
+            if (cashMachine.overdrawn()) {
+                alert.showAndWait();
+            }
         });
 
         Button btnExit = new Button("Log Off");
