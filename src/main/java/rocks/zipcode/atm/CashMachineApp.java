@@ -34,15 +34,25 @@ public class CashMachineApp extends Application {
 //        vbox.setPrefSize(600, 600);
 
         Button btnSubmit = new Button("Submit");
+        Button btnDeposit = new Button("Deposit");
+        Button btnWithdraw = new Button("Withdraw");
+
+        btnDeposit.setDisable(true);
+        btnWithdraw.setDisable(true);
+
         btnSubmit.setOnAction(e -> {
             int id = Integer.parseInt(field.getText());
             cashMachine.login(id);
 
             setTextAreas();
             field.setText("");
+            if (cashMachine.accountActive() == true) {
+                btnDeposit.setDisable(false);
+                btnWithdraw.setDisable(false);
+            }
+
         });
 
-        Button btnDeposit = new Button("Deposit");
         btnDeposit.setOnAction(e -> {
             int amount = Integer.valueOf(depositAmount.getText());
             cashMachine.deposit(amount);
@@ -59,7 +69,13 @@ public class CashMachineApp extends Application {
         alert.setContentText("Your account is currently overdrawn. Please make a deposit as soon as possible.");
 
 
-        Button btnWithdraw = new Button("Withdraw");
+        btnWithdraw.setOnAction(event -> {
+            if (cashMachine.accountActive() == true) {
+                btnWithdraw.setDisable(false);
+            } else {
+                btnWithdraw.setDisable(true);
+            }
+        });
         btnWithdraw.setOnAction(e -> {
             int amount = Integer.parseInt(withdrawalAmount.getText());
             cashMachine.withdraw(amount);
@@ -77,6 +93,9 @@ public class CashMachineApp extends Application {
             cashMachine.exit();
 
             setTextAreas();
+
+            btnDeposit.setDisable(true);
+            btnWithdraw.setDisable(true);
         });
 
 //        FlowPane flowpane = new FlowPane();

@@ -29,6 +29,16 @@ public class CashMachine {
         );
     }
 
+    public boolean accountActive() {
+        boolean accountActive;
+        if (accountData != null) {
+            accountActive = true;
+        } else {
+            accountActive = false;
+        }
+        return accountActive;
+    }
+
     public void deposit(int amount) {
         if (accountData != null) {
             tryCall(
