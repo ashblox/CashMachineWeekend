@@ -34,19 +34,35 @@ public final class AccountData {
         return balance;
     }
 
-    @Override
-    public String toString() {
-        if (balance > 0) {
-            return "Account id: " + id + '\n' +
-                    "Name: " + name + '\n' +
-                    "Email: " + email + '\n' +
-                    "Balance: " + balance;
-        } else {
-            return "Account id: " + id + '\n' +
-                    "Name: " + name + '\n' +
-                    "Email: " + email + '\n' +
-                    "Balance: " + balance + '\n' + '\n' +
-                    "ALERT! Your account is currently overdrawn.";
-        }
+    public String idToString() {
+        return "" + id;
     }
-}
+
+    public String nameToString() {
+        return name;
+    }
+
+    public String emailToString() {
+        return email;
+    }
+
+    public String balanceToString() {
+        return "" + balance;
+    }
+
+//    @Override
+//    public String toString() {
+//        if (balance > 0) {
+//            return "Account id: " + id + '\n' +
+//                    "Name: " + name + '\n' +
+//                    "Email: " + email + '\n' +
+//                    "Balance: " + balance;
+//        } else {
+//            return "Account id: " + id + '\n' +
+//                    "Name: " + name + '\n' +
+//                    "Email: " + email + '\n' +
+//                    "Balance: " + balance + '\n' + '\n' +
+//                    "ALERT! Your account is currently overdrawn.";
+//        }
+    }
+

@@ -53,9 +53,25 @@ public class CashMachine {
         }
     }
 
-    @Override
-    public String toString() {
-        return accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+//    @Override
+//    public String toString() {
+//        return accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+//    }
+
+    public String idToString() {
+        return accountData != null ? accountData.idToString() : "Try a different account";
+    }
+
+    public String nameToString() {
+        return accountData != null ? accountData.nameToString() : "";
+    }
+
+    public String emailToString() {
+        return accountData != null ? accountData.emailToString() : "";
+    }
+
+    public String balanceToString() {
+        return accountData != null ? accountData.balanceToString() : "";
     }
 
     private <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
