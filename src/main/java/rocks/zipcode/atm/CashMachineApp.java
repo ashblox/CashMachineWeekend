@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
 import sun.jvm.hotspot.debugger.win32.coff.TestDebugInfo;
 
+import java.text.DecimalFormat;
+
 /**
  * @author ZipCodeWilmington
  */
@@ -54,7 +56,7 @@ public class CashMachineApp extends Application {
         });
 
         btnDeposit.setOnAction(e -> {
-            int amount = Integer.valueOf(depositAmount.getText());
+            double amount = Double.parseDouble(depositAmount.getText());
             cashMachine.deposit(amount);
 
             setTextAreas();
@@ -77,7 +79,7 @@ public class CashMachineApp extends Application {
             }
         });
         btnWithdraw.setOnAction(e -> {
-            int amount = Integer.parseInt(withdrawalAmount.getText());
+            double amount = Double.parseDouble(withdrawalAmount.getText());
             cashMachine.withdraw(amount);
 
             setTextAreas();
