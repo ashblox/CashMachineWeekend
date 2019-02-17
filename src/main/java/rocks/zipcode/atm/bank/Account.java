@@ -36,8 +36,16 @@ public abstract class Account {
         return accountData.getBalance();
     }
 
+    public String getEmail() {
+        return accountData.getEmail();
+    }
+
+    public Integer getId() {
+        return accountData.getId();
+    }
+
     private void updateBalance(double newBalance) {
-        accountData = new AccountData(accountData.getId(), accountData.getName(), accountData.getEmail(),
+        accountData = new AccountData(accountData.getId(), accountData.getName(), accountData.getEmail(), accountData.hasMultipleAccounts(),
                 newBalance);
     }
 }

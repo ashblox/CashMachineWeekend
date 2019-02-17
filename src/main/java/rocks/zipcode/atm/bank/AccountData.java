@@ -8,14 +8,20 @@ public final class AccountData {
     private final int id;
     private final String name;
     private final String email;
+    private boolean hasMultAccounts;
 
     private final double balance;
 
-    AccountData(int id, String name, String email, double balance) {
+    AccountData(int id, String name, String email, boolean hasMultAccounts, double balance) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.hasMultAccounts = hasMultAccounts;
         this.balance = balance;
+    }
+
+    public boolean hasMultipleAccounts() {
+        return hasMultAccounts;
     }
 
     public int getId() {

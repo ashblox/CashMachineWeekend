@@ -3,6 +3,7 @@ package rocks.zipcode.atm;
 import rocks.zipcode.atm.bank.AccountData;
 import rocks.zipcode.atm.bank.Bank;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -72,6 +73,10 @@ public class CashMachine {
         return accountData != null ? accountData.idToString() : "No Account";
     }
 
+    public Integer getId() {
+        return accountData != null ? accountData.getId() : null;
+    }
+
     public String nameToString() {
         return accountData != null ? accountData.nameToString() : "";
     }
@@ -86,6 +91,14 @@ public class CashMachine {
 
     public boolean overdrawn () {
         return accountData != null ? accountData.overdrawn() : false;
+    }
+
+    public boolean hasMultAccounts() {
+        return accountData != null ? accountData.hasMultipleAccounts() : false;
+    }
+
+    public ArrayList<Integer> findAccounts() {
+        return bank.getAllAccounts(accountData.emailToString());
     }
 
     private <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
